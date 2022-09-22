@@ -1,2 +1,5 @@
-# api-go
-API 编译为 Go 的相应代码 - Compiled APIs in Go code.
+# 🐭 api-go
+
+```shell
+go get -u github.com/avino-plan/api-go
+```
