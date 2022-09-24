@@ -1,0 +1,21 @@
+name: Sync Repository To Gitee
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  main-job:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Sync
+        uses: Yikun/hub-mirror-action@master
+        with:
+          src: 'github/${{ github.repository_owner }}'
+          dst: 'gitee/${{ github.repository_owner }}'
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
+          static_list: ${{ github.event.repository.name }}
